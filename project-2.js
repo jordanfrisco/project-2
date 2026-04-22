@@ -8,6 +8,7 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import "./nav-bar.js";
 import "./team-info.js";
 import "./upcoming-events.js";
+import "./team-roster.js";
 
 /**
  * `project-2`
@@ -71,18 +72,23 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
 
   // Lit render the HTML
   render() {
-    return html`
-<div class="page">
+  return html`
+    <div class="page">
 
-  <nav-bar></nav-bar>
+      <nav-bar></nav-bar>
 
-  <team-info></team-info>
+      <team-info></team-info>
 
-  <upcoming-events></upcoming-events>
-       
-  <slot></slot>
-</div>`;
-  }
+      <!-- YOUR ROSTER ADDED HERE -->
+      <team-roster></team-roster>
+
+      <upcoming-events></upcoming-events>
+
+      <slot></slot>
+
+    </div>
+  `;
+}
 
   /**
    * haxProperties integration via file reference
