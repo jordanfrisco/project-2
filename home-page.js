@@ -2,10 +2,10 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
-export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
+export class homePage extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "upcoming-events";
+    return "home-page";
   }
    static get properties() {
     return {
@@ -17,7 +17,7 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.active = false;
-    this.topHeading = "Upcoming events";
+    this.topHeading = "Mini Master's Golf Club";
     };
   
     static get styles() {
@@ -28,17 +28,10 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
         width: 100%;
         background-color: var(--ddd-theme-default-alertUrgent);
       }
-      .top-heading{
-       color: var(--ddd-theme-default-forestGreen);
+       .top-heading{
+        font-size: var(--ddd-font-size-m);
         font-weight: var(--ddd-font-weight-bold);
-        margin: 0; 
-        margin-top: var(--ddd-spacing-2); 
-        margin-left: var(--ddd-spacing-8); 
-      }
-      .placeHolder{
         color: var(--ddd-theme-default-forestGreen);
-        margin-top: var(--ddd-spacing-4); 
-        margin-left: var(--ddd-spacing-8); 
       }
    
 
@@ -47,14 +40,18 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
 
   render() {
      return html`
-     <div class="teamInfo">
-        <h1 class="top-heading">${this.topHeading}</h1>
-        <p class ="placeHolder"> buttons with events go here such as tryouts and next match</p>
+     <div class="homePage">
 
-          <slot></slot>
+        <about-us></about-us>
+
+        <upcoming-events></upcoming-events>
+
+        <contact-us></contact-us>
+          
+        <slot></slot>
 
       </div>`;
   }
 }
 
-globalThis.customElements.define(UpcomingEvents.tag, UpcomingEvents);
+globalThis.customElements.define(homePage.tag, homePage);

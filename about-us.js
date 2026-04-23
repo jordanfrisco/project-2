@@ -17,22 +17,28 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.active = false;
-    this.topHeading = "";
+    this.topHeading = "Mini Master's Golf Club";
     };
   
     static get styles() {
     return [super.styles,
-    css`
+        css`
       :host {
         display: block;
-        background-color: var(--ddd-theme-default-alertUrgent);
+        background-color: var(--ddd-theme-default-forestGreen);
+        padding: var(--ddd-spacing-5); 
       }
       .top-heading{
-        color: var(--ddd-theme-default-forestGreen);
+       color: var(--ddd-theme-default-white);
         font-weight: var(--ddd-font-weight-bold);
+        margin: 0; 
+        margin-top: var(--ddd-spacing-2); 
+        margin-left: var(--ddd-spacing-8); 
       }
       .placeHolder{
-       color: var(--ddd-theme-default-forestGreen);
+        color: var(--ddd-theme-default-white);
+        margin-top: var(--ddd-spacing-4); 
+        margin-left: var(--ddd-spacing-8); 
       }
    
 
@@ -41,8 +47,9 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
 
   render() {
      return html`
-     <div class="placeHolder">
+     <div class="teamInfo">
         <h1 class="top-heading">${this.topHeading}</h1>
+        <p class ="placeHolder"> info about us goes here</p>
 
           <slot></slot>
 

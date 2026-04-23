@@ -22,7 +22,7 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
     super();
 
     this.active = false;
-    this.page = "home";
+    this.page = "roster";
 
     this.topHeading = "Mini Master's Golf Club";
 

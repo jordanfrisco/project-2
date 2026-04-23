@@ -17,7 +17,6 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.active = false;
-    this.topHeading = "Mini Master's Golf Club";
     };
   
     static get styles() {
@@ -27,27 +26,29 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
         display: block;
         background-color: var(--ddd-theme-default-alertUrgent);
     }
-    .top-heading{
-        color: var(--ddd-theme-default-forestGreen);
-        font-weight: var(--ddd-font-weight-bold);
+    .navBar{
+        display: flex;
+        align-items: center;
+        padding: var(--ddd-spacing-3);
     }
     .nav-links {
         display: flex;
-        gap: var(--ddd-spacing-4); 
+        gap: var(--ddd-spacing-4);
+        margin-left: auto;
+        margin-right: var(--ddd-spacing-8);
     }
-    .nav-links a.about {
-        color: var(--ddd-theme-default-forestGreen);
+    .nav-links a {
+        color: var(--ddd-theme-default-white); 
+        background-color: var(--ddd-theme-default-forestGreen); 
+        padding: var(--ddd-spacing-1) var(--ddd-spacing-3);
+        border-radius: var(--ddd-radius-sm);
+        text-decoration: none;
     }
-    .nav-links a.schedule {
-        color: var(--ddd-theme-default-forestGreen);
+    .golfer {
+        width: 80px;
+        margin-right: var(--ddd-spacing-5);
     }
-    .nav-links a.teamInfo {
-        color: var(--ddd-theme-default-forestGreen);
-    }
-    .nav-links a.signUp {
-        color: var(--ddd-theme-default-white);
-        background-color: var(--ddd-theme-default-forestGreen);
-    }
+    
     
    
 
@@ -65,14 +66,17 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
   render() {
      return html`
      <div class="navBar">
-        <h1 class="top-heading">${this.topHeading}</h1>
 
-       <div class="nav-links">
-      <a @click=${() => this._navigate("about")} class="about">About</a>
-      <a @click=${() => this._navigate("schedule")} class="schedule">Schedule</a>
-      <a @click=${() => this._navigate("teamInfo")} class="teamInfo">Team Info</a>
-      <a @click=${() => this._navigate("signUp")} class="signUp">Sign Up</a>
-        </div>
+     <img src="https://png.pngtree.com/png-clipart/20220111/original/pngtree-golf-player-silhouette-png-image_7077471.png" alt="golfer" class="golfer">
+
+      <div class="nav-links">
+        <a @click=${(e) => { e.preventDefault(); this._navigate("home"); }} class="home">🏠 home</a>
+         <a @click=${(e) => { e.preventDefault(); this._navigate("schedule"); }} class="schedule">🗓️ Schedule</a>
+        <a @click=${(e) => { e.preventDefault(); this._navigate("teamInfo"); }} class="teamInfo">ℹ Team Info</a>
+        <a @click=${(e) => { e.preventDefault(); this._navigate("tryouts"); }} class="tryouts">🏌️‍♀️ Tryouts</a>
+        <a @click=${(e) => { e.preventDefault(); this._navigate("signUp"); }} class="signUp">✍️ Sign Up</a>
+    </div>
+
             <slot></slot>
 
       </div>`;

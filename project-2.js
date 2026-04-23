@@ -9,6 +9,12 @@ import "./nav-bar.js";
 import "./team-info.js";
 import "./upcoming-events.js";
 import "./team-roster.js";
+import "./sign-up.js";
+import "./home-page.js";
+import "./about-us.js";
+import "./contact-us.js";
+import "./my-schedule.js";
+import "./my-tryouts.js";
 
 /**
  * `project-2`
@@ -26,6 +32,7 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
     super();
     this.title = "";
     this.t = this.t || {};
+    this.page = "home";
     this.t = {
       ...this.t,
       title: "Title",
@@ -43,6 +50,7 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      page: { type: String }
     };
   }
 
@@ -62,29 +70,38 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
-      .top-heading{
-        font-size: var(--ddd-font-size-m);
-        font-weight: var(--ddd-font-weight-bold);
-        color: var(--ddd-theme-default-skyBlue);
+      .page {
+      max-width: 100%;
+      }
+
+    .content {
+      padding: var(--ddd-spacing-4);
       }
     `];
+  }
+
+  _changePage(e) {
+  this.page = e.detail.page;
   }
 
   // Lit render the HTML
   render() {
   return html`
-    <div class="page">
+  
+  <div class="page">
 
-      <nav-bar></nav-bar>
+      <nav-bar @nav-change=${(e) => this._changePage(e)}></nav-bar>
 
-      <team-info></team-info>
+      ${this.page === "home" ? html`<home-page></home-page>` : ""}
 
-      <!-- YOUR ROSTER ADDED HERE -->
-      <team-roster></team-roster>
+      ${this.page === "schedule" ? html`<my-schedule></my-schedule>` : ""}
 
-      <upcoming-events></upcoming-events>
+      ${this.page === "tryouts" ? html`<my-tryouts></my-tryouts>` : ""}
 
-      <slot></slot>
+       <!-- YOUR ROSTER ADDED HERE --> 
+      ${this.page === "teamInfo" ? html`<team-roster></team-roster>` : ""}
+
+      ${this.page === "signUp" ? html`<sign-up></sign-up>` : ""}
 
     </div>
   `;

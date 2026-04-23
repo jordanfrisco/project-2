@@ -11,13 +11,14 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       active: {type: Boolean, reflect: true},
+      page: { type: String },
     };
   }
 
   constructor() {
     super();
     this.active = false;
-    this.topHeading = "";
+    this.topHeading = "testingggg";
     };
   
     static get styles() {
