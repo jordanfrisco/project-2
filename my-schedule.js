@@ -29,7 +29,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
-          background-color: #b98963;
+          background-color:var(--ddd-theme-default-alertUrgent);
           padding: 24px;
           box-sizing: border-box;
           font-family: Arial, sans-serif;
@@ -41,7 +41,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .top-heading {
-          color: #6b241f;
+          color: var(--ddd-theme-default-forestGreen);
           font-size: 2rem;
           font-weight: 700;
           margin: 0 0 20px 0;
@@ -56,7 +56,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
 
         .month-title {
           text-align: center;
-          color: #6b241f;
+          color: var(--ddd-theme-default-forestGreen);
           font-size: 1.8rem;
           font-weight: 500;
         }
@@ -70,7 +70,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         button {
-          background-color: #6b241f;
+          background-color: var(--ddd-theme-default-forestGreen);
           color: white;
           border: none;
           padding: 6px 12px;
@@ -91,7 +91,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
           box-sizing: border-box;
           font-size: 1.8rem;
           font-weight: 700;
-          color: #1f2a38;
+          color: var(--ddd-theme-default-forestGreen);
         }
 
         .blank {
