@@ -2,10 +2,10 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
-export class TeamInfo extends DDDSuper(I18NMixin(LitElement)) {
+export class TeamStats extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "team-info";
+    return "team-stats";
   }
    static get properties() {
     return {
@@ -42,9 +42,9 @@ export class TeamInfo extends DDDSuper(I18NMixin(LitElement)) {
 
   render() {
      return html`
-     <div class="teamInfo">
+     <div class="teamStats">
         <h1 class="top-heading">${this.topHeading}</h1>
-        <p class ="placeHolder"> Images and team info go here</p>
+        <p class ="placeHolder"> wins go here</p>
 
           <slot></slot>
 
@@ -52,4 +52,4 @@ export class TeamInfo extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(TeamInfo.tag, TeamInfo);
+globalThis.customElements.define(TeamStats.tag, TeamStats);

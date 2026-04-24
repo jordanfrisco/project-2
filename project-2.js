@@ -6,7 +6,7 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import "./nav-bar.js";
-import "./team-info.js";
+import "./team-stats.js";
 import "./upcoming-events.js";
 import "./team-roster.js";
 import "./sign-up.js";
