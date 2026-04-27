@@ -48,6 +48,8 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
   render() {
      return html`
      <div class="teamInfo">
+
+      <img src="/images/logo.png" alt="golfer" class="golfer">
         <h1 class="top-heading">${this.topHeading}</h1>
         <p class ="placeHolder"> info about us goes here</p>
 
