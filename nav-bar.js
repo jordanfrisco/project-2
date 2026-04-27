@@ -67,7 +67,7 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
      return html`
      <div class="navBar">
 
-     <img src="https://png.pngtree.com/png-clipart/20220111/original/pngtree-golf-player-silhouette-png-image_7077471.png" alt="golfer" class="golfer">
+     <img src="/images/mini-logo.png" alt="golfer" class="golfer">
 
       <div class="nav-links">
         <a @click=${(e) => { e.preventDefault(); this._navigate("home"); }} class="home">🏠 home</a>
