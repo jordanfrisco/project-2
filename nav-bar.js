@@ -44,13 +44,11 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
         border-radius: var(--ddd-radius-sm);
         text-decoration: none;
     }
-    .golfer {
-        width: 80px;
+    .logo {
+        width: 100px;
         margin-right: var(--ddd-spacing-5);
     }
-    
-    
-   
+
 
     `];
   }
@@ -67,7 +65,7 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
      return html`
      <div class="navBar">
 
-     <img src="/images/mini-logo.png" alt="golfer" class="golfer">
+     <img src="/images/mini-logo.png" alt="logo" class="logo">
 
       <div class="nav-links">
         <a @click=${(e) => { e.preventDefault(); this._navigate("home"); }} class="home">🏠 home</a>

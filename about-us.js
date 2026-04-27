@@ -29,16 +29,27 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-5); 
       }
       .top-heading{
-       color: var(--ddd-theme-default-white);
+        color: var(--ddd-theme-default-white);
         font-weight: var(--ddd-font-weight-bold);
         margin: 0; 
         margin-top: var(--ddd-spacing-2); 
-        margin-left: var(--ddd-spacing-8); 
+        text-align: center;
+ 
       }
-      .placeHolder{
+      .about-us-sumary{
         color: var(--ddd-theme-default-white);
         margin-top: var(--ddd-spacing-4); 
-        margin-left: var(--ddd-spacing-8); 
+        text-align: center;
+        max-width: 600px;   
+        margin-left: auto;
+        margin-right: auto; 
+
+      }
+      .logo{
+        width: 250px;
+        display: block;        
+        margin: 0 auto;
+    
       }
    
 
@@ -50,7 +61,12 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
      <div class="teamInfo">
 
         <h1 class="top-heading">${this.topHeading}</h1>
-        <p class ="placeHolder"> info about us goes here</p>
+
+        <img src="/images/mini-logo.png" alt="logo" class="logo">
+
+        <p class ="about-us-sumary">The Mini Masters Golf Club is a competitive youth team focused on helping young golfers grow and succeed. 
+  Our members practice, compete, and support one another while building confidence and strong sportsmanship. 
+  We strive to balance competition, teamwork, and a love for the game.</p>
 
           <slot></slot>
 

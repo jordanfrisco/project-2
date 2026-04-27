@@ -26,18 +26,23 @@ export class ContactUs extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         background-color: var(--ddd-theme-default-forestGreen);
+
+        padding-top: var(--ddd-spacing-4);
+        padding-bottom: var(--ddd-spacing-9);
       }
         .top-heading{
-       color: var(--ddd-theme-default-white);
+        color: var(--ddd-theme-default-white);
         font-weight: var(--ddd-font-weight-bold);
         margin: 0; 
-        margin-top: var(--ddd-spacing-2); 
-        margin-left: var(--ddd-spacing-8); 
-      }
-      .placeHolder{
-        color: var(--ddd-theme-default-white);
         margin-top: var(--ddd-spacing-4); 
         margin-left: var(--ddd-spacing-8); 
+      }
+      .contact-info{
+        color: var(--ddd-theme-default-white);
+        margin-top: var(--ddd-spacing-4); 
+        justify-content: flex-start; 
+        margin-left: var(--ddd-spacing-8);  
+        max-width: 600px;    
       }
    
 
@@ -49,7 +54,8 @@ export class ContactUs extends DDDSuper(I18NMixin(LitElement)) {
 
         <h1 class="top-heading">${this.topHeading}</h1>
 
-        <p class= "placeHolder">contact information here</p>
+        <p class= "contact-info">Email: test@gmail.com <br>
+                                Phone: 123-456-7890</p>
 
           <slot></slot>
 
