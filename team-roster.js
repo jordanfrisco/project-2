@@ -26,6 +26,8 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
 
     this.topHeading = "Mini Master's Golf Club";
 
+  
+
     this.coaches = [
       { name: "Coach Tiger", img: "https://tigerwoods.com/wp-content/uploads/2019/04/WordPress_OntheCourse_1.png" },
       { name: "Coach Rory", img: "https://ogden_images.s3.amazonaws.com/www.altoonamirror.com/images/2025/04/14232016/B4McIlroy.jpg" },
@@ -33,11 +35,11 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
     ];
 
     this.kids = [
-      "Tommy",
-      "Alex",
-      "Jordan",
-      "Chris",
-      "Sam"
+      "Tommy Gordon - Age: 12 - Handicap: 10",
+      "Alex Lezza - Age: 11 - Handicap: 7",
+      "Jordan Allen - Age: 13 - Handicap: 3",
+      "Chris Hauser - Age: 12 - Handicap: 12",
+      "Sam Smith - Age: 11 - Handicap: 5"
     ];
   }
 
@@ -124,21 +126,25 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
                 Back
               </button>
 
-              <!-- Coaches -->
-              <div class="coaches">
-                ${this.coaches.map(
-                  coach => html`
-                    <div class="coach">
-                      <img src="${coach.img}" alt="${coach.name}" />
-                      <div>${coach.name}</div>
-                    </div>
-                  `
-                )}
-              </div>
+             <!-- Coaches -->
+<div class="coaches-section">
+  <h3 class="top-heading">Our Professional Instructors!</h3>
+
+  <div class="coaches">
+    ${this.coaches.map(
+      coach => html`
+        <div class="coach">
+          <img src="${coach.img}" alt="${coach.name}" />
+          <div>${coach.name}</div>
+        </div>
+      `
+    )}
+  </div>
+</div>
 
               <!-- Kids -->
               <div class="kids">
-                <h3>Players</h3>
+                <h3>Meet our team!</h3>
                 <ul>
                   ${this.kids.map(
                     kid => html`<li>${kid}</li>`
