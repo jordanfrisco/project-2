@@ -27,6 +27,7 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
         display: block;
         background-color: var(--ddd-theme-default-forestGreen);
         padding: var(--ddd-spacing-5); 
+        box-shadow: inset 0 -40px 60px rgba(0,0,0,0.2);
       }
       .top-heading{
         color: var(--ddd-theme-default-white);
@@ -48,8 +49,7 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
       .logo{
         width: 250px;
         display: block;        
-        margin: 0 auto;
-    
+        margin: 0 auto; 
       }
    
 

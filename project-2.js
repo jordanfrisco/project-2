@@ -15,6 +15,7 @@ import "./about-us.js";
 import "./contact-us.js";
 import "./my-schedule.js";
 import "./my-tryouts.js";
+import "./team-stats.js";
 
 /**
  * `project-2`
@@ -99,7 +100,7 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
       ${this.page === "tryouts" ? html`<my-tryouts></my-tryouts>` : ""}
 
        <!-- YOUR ROSTER ADDED HERE --> 
-      ${this.page === "teamInfo" ? html`<team-roster></team-roster>` : ""}
+      ${this.page === "teamInfo" ? html`<team-roster></team-roster><team-stats>` : ""}
 
       ${this.page === "signUp" ? html`<sign-up></sign-up>` : ""}
 

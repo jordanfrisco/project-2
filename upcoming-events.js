@@ -27,6 +27,7 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
         display: block;
         width: 100%;
         background-color: var(--ddd-theme-default-alertUrgent);
+
       }
       .top-heading{
         color: var(--ddd-theme-default-forestGreen);
@@ -51,7 +52,6 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
 
         .event-card {
         background-color: var(--ddd-theme-default-forestGreen);
-        color: var(--ddd-theme-default-white);
 
         width: 180px;
         height: 150px;
@@ -61,8 +61,10 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
         align-items: center;
         justify-content: flex-start; 
 
-        border-radius: 6px;
+        border-radius: var(--ddd-radius-md);
         padding: var(--ddd-spacing-2);
+
+      
     }
 
     .event-img {
@@ -71,7 +73,13 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
         max-height: 80px;    
         object-fit: cover;    
         border-radius: 4px;
-}
+  }
+
+  .event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+  cursor: pointer;
+  }
    
 
     `];

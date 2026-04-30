@@ -33,20 +33,34 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
     }
     .nav-links {
         display: flex;
-        gap: var(--ddd-spacing-4);
+        gap: var(--ddd-spacing-5);
         margin-left: auto;
         margin-right: var(--ddd-spacing-8);
     }
     .nav-links a {
         color: var(--ddd-theme-default-white); 
         background-color: var(--ddd-theme-default-forestGreen); 
-        padding: var(--ddd-spacing-1) var(--ddd-spacing-3);
+        padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
         border-radius: var(--ddd-radius-sm);
         text-decoration: none;
+
+        display: flex;
+        align-items: center;
+        gap: 6px;
     }
     .logo {
         width: 100px;
         margin-right: var(--ddd-spacing-5);
+    }
+    .nav-links a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+      cursor: pointer;
+    }
+    .icon {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
     }
 
 
@@ -68,11 +82,11 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
      <img src="/images/mini-logo.png" alt="logo" class="logo">
 
       <div class="nav-links">
-        <a @click=${(e) => { e.preventDefault(); this._navigate("home"); }} class="home">🏠 home</a>
-         <a @click=${(e) => { e.preventDefault(); this._navigate("schedule"); }} class="schedule">🗓️ Schedule</a>
-        <a @click=${(e) => { e.preventDefault(); this._navigate("teamInfo"); }} class="teamInfo">ℹ Team Info</a>
-        <a @click=${(e) => { e.preventDefault(); this._navigate("tryouts"); }} class="tryouts">🏌️‍♀️ Tryouts</a>
-        <a @click=${(e) => { e.preventDefault(); this._navigate("signUp"); }} class="signUp">✍️ Sign Up</a>
+        <a @click=${(e) => { e.preventDefault(); this._navigate("home"); }} class="home">Home</a>
+         <a @click=${(e) => { e.preventDefault(); this._navigate("schedule"); }} class="schedule">Schedule</a>
+        <a @click=${(e) => { e.preventDefault(); this._navigate("teamInfo"); }} class="teamInfo">Team Info</a>
+        <a @click=${(e) => { e.preventDefault(); this._navigate("tryouts"); }} class="tryouts">Tryouts</a>
+        <a @click=${(e) => { e.preventDefault(); this._navigate("signUp"); }} class="signUp">Sign Up</a>
     </div>
 
             <slot></slot>

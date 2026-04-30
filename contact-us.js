@@ -26,9 +26,9 @@ export class ContactUs extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         background-color: var(--ddd-theme-default-forestGreen);
-
         padding-top: var(--ddd-spacing-4);
         padding-bottom: var(--ddd-spacing-9);
+        box-shadow: inset 0 -40px 60px rgba(0,0,0,0.2);
       }
         .top-heading{
         color: var(--ddd-theme-default-white);

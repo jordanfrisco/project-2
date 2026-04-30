@@ -17,7 +17,7 @@ export class TeamStats extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.active = false;
-    this.topHeading = "About the team";
+    this.topHeading = "Team Stats";
     };
   
     static get styles() {
