@@ -64,6 +64,9 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
         background-color: var(--ddd-theme-default-alertUrgent);
         font-family: var(--ddd-font-navigation);
       }
+      :root{
+      color-scheme: light-dark;
+      }
       .wrapper {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
@@ -93,11 +96,11 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
 
       <nav-bar @nav-change=${(e) => this._changePage(e)}></nav-bar>
 
-      ${this.page === "home" ? html`<home-page></home-page>` : ""}
+      ${this.page === "home" ? html`<home-page @nav-change=${(e) => this._changePage(e)}></home-page>` : ""}
 
-      ${this.page === "schedule" ? html`<my-schedule></my-schedule>` : ""}
+      ${this.page === "my-schedule" ? html`<my-schedule></my-schedule>` : ""}
 
-      ${this.page === "tryouts" ? html`<my-tryouts></my-tryouts>` : ""}
+      ${this.page === "my-tryouts" ? html`<my-tryouts></my-tryouts>` : ""}
 
        <!-- YOUR ROSTER ADDED HERE --> 
       ${this.page === "teamInfo" ? html`<team-roster></team-roster><team-stats>` : ""}

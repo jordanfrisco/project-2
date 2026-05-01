@@ -24,7 +24,7 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
     css`
     :host {
         display: block;
-        background-color: var(--ddd-theme-default-alertUrgent);
+        background-color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
     }
     .navBar{
         display: flex;
@@ -38,8 +38,8 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
         margin-right: var(--ddd-spacing-8);
     }
     .nav-links a {
-        color: var(--ddd-theme-default-white); 
-        background-color: var(--ddd-theme-default-forestGreen); 
+        background-color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
+        color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
         padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
         border-radius: var(--ddd-radius-sm);
         text-decoration: none;

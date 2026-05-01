@@ -25,12 +25,12 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
         css`
       :host {
         display: block;
-        background-color: var(--ddd-theme-default-forestGreen);
+        background-color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
         padding: var(--ddd-spacing-5); 
         box-shadow: inset 0 -40px 60px rgba(0,0,0,0.2);
       }
       .top-heading{
-        color: var(--ddd-theme-default-white);
+        color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
         font-weight: var(--ddd-font-weight-bold);
         margin: 0; 
         margin-top: var(--ddd-spacing-2); 
@@ -38,7 +38,7 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
  
       }
       .about-us-sumary{
-        color: var(--ddd-theme-default-white);
+        color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
         margin-top: var(--ddd-spacing-4); 
         text-align: center;
         max-width: 600px;   
