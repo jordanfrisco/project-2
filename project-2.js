@@ -98,7 +98,7 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
 
       ${this.page === "home" ? html`<home-page @nav-change=${(e) => this._changePage(e)}></home-page>` : ""}
 
-      ${this.page === "my-schedule" ? html`<my-schedule></my-schedule>` : ""}
+      ${this.page === "schedule" || this.page === "my-schedule" ? html`<my-schedule></my-schedule>` : ""}
 
       ${this.page === "my-tryouts" ? html`<my-tryouts></my-tryouts>` : ""}
 
