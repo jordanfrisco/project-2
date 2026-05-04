@@ -85,7 +85,7 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
         <a @click=${(e) => { e.preventDefault(); this._navigate("home"); }} class="home">Home</a>
          <a @click=${(e) => { e.preventDefault(); this._navigate("schedule"); }} class="schedule">Schedule</a>
         <a @click=${(e) => { e.preventDefault(); this._navigate("teamInfo"); }} class="teamInfo">Team Info</a>
-        <a @click=${(e) => { e.preventDefault(); this._navigate("tryouts"); }} class="tryouts">Tryouts</a>
+        <a @click=${(e) => { e.preventDefault(); this._navigate("my-tryouts"); }} class="tryouts">Tryouts</a>
         <a @click=${(e) => { e.preventDefault(); this._navigate("signUp"); }} class="signUp">Sign Up</a>
     </div>
 
