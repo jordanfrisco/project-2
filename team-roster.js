@@ -69,7 +69,7 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .coach {
-          text-align: center;
+          text-align: center; 
         }
 
         .coach img {
