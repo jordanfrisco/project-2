@@ -51,18 +51,21 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
           display: block;
           background-color: var(--ddd-theme-default-alertUrgent);
           padding: 16px;
+          text-align: center;
         }
 
         .top-heading {
-          color: var(--ddd-theme-default-black);
+          color: var(--ddd-theme-default-forestGreen);
           font-weight: var(--ddd-font-weight-bold);
         }
 
         .coaches {
           display: flex;
+          justify-content: center;
+          align-items: center;
           gap: 16px;
-          margin: 20px 0;
-          color:black;
+          margin: 20px auto;
+          color: var(--ddd-theme-default-forestGreen);
         }
 
         .coach {
@@ -77,7 +80,7 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
 
         .kids {
           margin-top: 10px;
-          color: black;
+          color: var(--ddd-theme-default-forestGreen);
         }
 
         .kids li {
