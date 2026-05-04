@@ -102,7 +102,6 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
 
       ${this.page === "my-tryouts" ? html`<my-tryouts></my-tryouts>` : ""}
 
-       <!-- YOUR ROSTER ADDED HERE --> 
       ${this.page === "teamInfo" ? html`<team-roster></team-roster><team-stats>` : ""}
 
       ${this.page === "signUp" ? html`<sign-up></sign-up>` : ""}

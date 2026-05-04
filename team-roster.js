@@ -54,18 +54,8 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .top-heading {
-          color: var(--ddd-theme-default-forestGreen);
+          color: var(--ddd-theme-default-black);
           font-weight: var(--ddd-font-weight-bold);
-        }
-
-        .button {
-          padding: 10px 16px;
-          background: var(--ddd-theme-default-forestGreen);
-          color: white;
-          border: none;
-          cursor: pointer;
-          margin-top: 20px;
-          border-radius: 6px;
         }
 
         .coaches {
@@ -113,18 +103,11 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
             <div class="navBar">
               <h1 class="top-heading">${this.topHeading}</h1>
 
-              <button class="button" @click=${this.goRoster}>
-                View Roster
-              </button>
             </div>
           `
         : html`
             <div class="navBar">
               <h1 class="top-heading">Team Roster</h1>
-
-              <button class="button" @click=${this.goHome}>
-                Back
-              </button>
 
              <!-- Coaches -->
 <div class="coaches-section">
