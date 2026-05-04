@@ -91,7 +91,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
-          background-color:  var(--ddd-theme-default-alertUrgent);
+          background-color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
           padding: 24px;
           box-sizing: border-box;
           font-family: Arial, sans-serif;
@@ -103,7 +103,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .top-heading {
-          color: var(--ddd-theme-default-forestGreen);
+          color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
           font-size: 2rem;
           font-weight: 700;
           margin: 0 0 20px 0;
@@ -118,7 +118,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
 
         .month-title {
           text-align: center;
-          color: var(--ddd-theme-default-forestGreen);
+          color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
           font-size: 1.8rem;
           font-weight: 500;
         }
@@ -132,8 +132,8 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         button {
-          background-color: var(--ddd-theme-default-forestGreen);
-          color: var(--ddd-theme-default-white);
+          background-color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
+          color: light-dark( var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
           border: none;
           padding: 6px 12px;
           font-size: 1rem;
@@ -147,23 +147,23 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .day {
-          background-color: var(--ddd-theme-default-white);
+          background-color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));;
           min-height: 120px;
           padding: 10px;
           box-sizing: border-box;
           font-size: 1.2rem;
           font-weight: 700;
-          color: var(--ddd-theme-default-forestGreen);
+          color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
         }
 
         .blank {
-          background-color: var(--ddd-theme-default-white);
+          background-color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));;
           min-height: 120px;
         }
 
         .event {
-          background-color: var(--ddd-theme-default-forestGreen);
-          color: white;
+          background-color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
+          color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));;
           font-size: 0.75rem;
           font-weight: 500;
           margin-top: 6px;
