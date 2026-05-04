@@ -12,7 +12,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
       ...super.properties,
       active: { type: Boolean, reflect: true },
       topHeading: { type: String },
-      monthLabel: { type: String },
+      currentDate: { type: Object },
     };
   }
 
@@ -20,7 +20,69 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
     super();
     this.active = false;
     this.topHeading = "Title:";
-    this.monthLabel = "April 2026";
+    this.currentDate = new Date(2026, 4, 1); // May 2026
+  }
+
+  prevMonth() {
+    this.currentDate = new Date(
+      this.currentDate.getFullYear(),
+      this.currentDate.getMonth() - 1,
+      1
+    );
+  }
+
+  nextMonth() {
+    this.currentDate = new Date(
+      this.currentDate.getFullYear(),
+      this.currentDate.getMonth() + 1,
+      1
+    );
+  }
+
+  getMonthLabel() {
+    return this.currentDate.toLocaleString("default", {
+      month: "long",
+      year: "numeric",
+    });
+  }
+
+  renderDays() {
+    const year = this.currentDate.getFullYear();
+    const month = this.currentDate.getMonth();
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const days = [];
+
+    for (let i = 0; i < firstDay; i++) {
+      days.push(html`<div class="blank"></div>`);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month, day);
+      const weekDay = date.getDay();
+
+      days.push(html`
+        <div class="day">
+          <div>${day}</div>
+
+          ${day === 1
+            ? html`<div class="event">Tryouts<br>5:00–7:00pm</div>`
+            : ""}
+
+          ${weekDay === 2 || weekDay === 4
+            ? html`<div class="event">Practice<br>5:00–6:30pm</div>`
+            : ""}
+
+          ${weekDay === 0
+            ? html`<div class="event">Match<br>9:00am–12:00pm</div>`
+            : ""}
+        </div>
+      `);
+    }
+
+    return days;
   }
 
   static get styles() {
@@ -29,7 +91,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
-          background-color:var(--ddd-theme-default-alertUrgent);
+          background-color: white;
           padding: 24px;
           box-sizing: border-box;
           font-family: Arial, sans-serif;
@@ -85,18 +147,28 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .day {
-          background-color: #efefef;
+          background-color: var(--ddd-theme-default-alertUrgent);
           min-height: 120px;
           padding: 10px;
           box-sizing: border-box;
-          font-size: 1.8rem;
+          font-size: 1.2rem;
           font-weight: 700;
           color: var(--ddd-theme-default-forestGreen);
         }
 
         .blank {
-          background-color: #efefef;
+          background-color: white;
           min-height: 120px;
+        }
+
+        .event {
+          background-color: var(--ddd-theme-default-forestGreen);
+          color: white;
+          font-size: 0.75rem;
+          font-weight: 500;
+          margin-top: 6px;
+          padding: 4px;
+          border-radius: 4px;
         }
       `,
     ];
@@ -108,54 +180,17 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         <h1 class="top-heading">${this.topHeading}</h1>
 
         <div class="schedule-header">
-          <button class="left-btn">Prev</button>
-          <div class="month-title">${this.monthLabel}</div>
-          <button class="right-btn">Next</button>
+          <button class="left-btn" @click="${this.prevMonth}">Prev</button>
+          <div class="month-title">${this.getMonthLabel()}</div>
+          <button class="right-btn" @click="${this.nextMonth}">Next</button>
         </div>
 
         <div class="schedule-grid">
-          <div class="blank"></div>
-          <div class="blank"></div>
-          <div class="blank"></div>
-
-          <div class="day">1</div>
-          <div class="day">2</div>
-          <div class="day">3</div>
-          <div class="day">4</div>
-
-          <div class="day">5</div>
-          <div class="day">6</div>
-          <div class="day">7</div>
-          <div class="day">8</div>
-          <div class="day">9</div>
-          <div class="day">10</div>
-          <div class="day">11</div>
-
-          <div class="day">12</div>
-          <div class="day">13</div>
-          <div class="day">14</div>
-          <div class="day">15</div>
-          <div class="day">16</div>
-          <div class="day">17</div>
-          <div class="day">18</div>
-
-          <div class="day">19</div>
-          <div class="day">20</div>
-          <div class="day">21</div>
-          <div class="day">22</div>
-          <div class="day">23</div>
-          <div class="day">24</div>
-          <div class="day">25</div>
-
-          <div class="day">26</div>
-          <div class="day">27</div>
-          <div class="day">28</div>
-          <div class="day">29</div>
-          <div class="day">30</div>
+          ${this.renderDays()}
         </div>
       </div>
     `;
   }
 }
 
-globalThis.customElements.define(MySchedule.tag, MySchedule); 
+globalThis.customElements.define(MySchedule.tag, MySchedule);
