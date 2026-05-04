@@ -133,7 +133,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
 
         button {
           background-color: var(--ddd-theme-default-forestGreen);
-          color: white;
+          color: var(--ddd-theme-default-white);
           border: none;
           padding: 6px 12px;
           font-size: 1rem;
@@ -147,7 +147,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .day {
-          background-color: white;
+          background-color: var(--ddd-theme-default-white);
           min-height: 120px;
           padding: 10px;
           box-sizing: border-box;
@@ -157,7 +157,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .blank {
-          background-color: white;
+          background-color: var(--ddd-theme-default-white);
           min-height: 120px;
         }
 
