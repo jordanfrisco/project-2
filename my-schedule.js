@@ -91,7 +91,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
-          background-color: white;
+          background-color:  var(--ddd-theme-default-alertUrgent);
           padding: 24px;
           box-sizing: border-box;
           font-family: Arial, sans-serif;
@@ -147,7 +147,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .day {
-          background-color: var(--ddd-theme-default-alertUrgent);
+          background-color: white;
           min-height: 120px;
           padding: 10px;
           box-sizing: border-box;
