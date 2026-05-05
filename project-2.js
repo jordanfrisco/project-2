@@ -45,7 +45,41 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
       new URL("./locales/project-2.ar.json", import.meta.url).href +
       "/../",
   });
+}
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    const path = window.location.pathname.replace("/", "");
+
+    if (path === "") {
+      this.page = "home";
+    }
+    else if (path === "schedule") {
+      this.page = "schedule";
+    }
+    else if (path === "teamInfo") {
+      this.page = "teamInfo";
+    }
+    else if (path === "my-tryouts") {
+      this.page = "my-tryouts";
+    }
+    else if (path === "signUp") {
+      this.page = "signUp";
+    }
+
+  window.addEventListener("popstate", this._handlePopState);
   }
+
+  disconnectedCallback() {
+    window.removeEventListener("popstate", this._handlePopState);
+    super.disconnectedCallback();
+  }
+
+  _handlePopState = () => {
+    const path = window.location.pathname.replace("/", "");
+    this.page = path || "home";
+  };
 
   // Lit reactive properties
   static get properties() {
@@ -66,7 +100,7 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
       }
       :root{
-      color-scheme: light-dark;
+      color-scheme: light dark;
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
@@ -88,6 +122,9 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
   _changePage(e) {
     this.page = e.detail.page;
     localStorage.setItem("project2-page", this.page);
+
+    const slug = this.page === "home" ? "/" : `/${this.page}`;
+    history.pushState({ page: this.page }, "", slug);
   }
 
   // Lit render the HTML
