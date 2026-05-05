@@ -118,8 +118,6 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
       <div class="placeHolder">
         <div class="confirmation-box">
         <h1 class="top-heading">Thanks for signing up!</h1>
-        <p>Confirmation sent for: ${this.name}</p>
-        <p>Email: ${this.email}</p>
         </div>
       </div>`;
     }
