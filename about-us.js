@@ -63,7 +63,7 @@ export class AboutUs extends DDDSuper(I18NMixin(LitElement)) {
 
         <h1 class="top-heading">${this.topHeading}</h1>
 
-        <img src="/public/images/mini-logo.png" alt="logo" class="logo">
+        <img src="/images/mini-logo.png" alt="logo" class="logo">
 
         <p class ="about-us-summary">The Mini Masters Golf Club is a competitive youth team focused on helping young golfers grow and succeed. 
   Our members practice, compete, and support one another while building confidence and strong sportsmanship. 
