@@ -15,7 +15,6 @@ import "./about-us.js";
 import "./contact-us.js";
 import "./my-schedule.js";
 import "./my-tryouts.js";
-import "./team-stats.js";
 
 /**
  * `project-2`
@@ -33,17 +32,19 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
     super();
     this.title = "";
     this.t = this.t || {};
-    this.page = "home";
+    this.page = localStorage.getItem("project2-page") || "home";
+
     this.t = {
       ...this.t,
       title: "Title",
     };
+
     this.registerLocalization({
       context: this,
       localesPath:
-        new URL("./locales/project-2.ar.json", import.meta.url).href +
-        "/../",
-    });
+      new URL("./locales/project-2.ar.json", import.meta.url).href +
+      "/../",
+  });
   }
 
   // Lit reactive properties
@@ -85,7 +86,8 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   _changePage(e) {
-  this.page = e.detail.page;
+    this.page = e.detail.page;
+    localStorage.setItem("project2-page", this.page);
   }
 
   // Lit render the HTML
@@ -102,7 +104,10 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
 
       ${this.page === "my-tryouts" ? html`<my-tryouts></my-tryouts>` : ""}
 
-      ${this.page === "teamInfo" ? html`<team-roster></team-roster><team-stats>` : ""}
+      ${this.page === "teamInfo" ? html`
+        <team-roster></team-roster>
+        <team-stats></team-stats>
+      ` : ""}
 
       ${this.page === "signUp" ? html`<sign-up></sign-up>` : ""}
 

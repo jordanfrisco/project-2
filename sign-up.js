@@ -11,7 +11,6 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       active: { type: Boolean, reflect: true },
-      page: { type: String },
       name: { type: String },
       email: { type: String },
       submitted: { type: Boolean },
@@ -21,7 +20,7 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.active = false;
-    this.topHeading = "Sign Up!";
+    this.topHeading = "Sign Up To Tryout!";
     this.name = "";
     this.email = "";
     this.submitted = false;
@@ -30,10 +29,10 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
     static get styles() {
     return [super.styles,
     css`
-       :host {
+    :host {
       display: block;
-      background-color: var(--ddd-theme-default-alertUrgent);
-      min-height: 500px;
+      background-color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
+      min-height: 100vh;
       padding: var(--ddd-spacing-8);
     }
 
@@ -47,7 +46,7 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
     }
 
     .top-heading {
-      color: var(--ddd-theme-default-forestGreen);
+      color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
       font-weight: var(--ddd-font-weight-bold);
       text-align: center;
       margin-bottom: var(--ddd-spacing-5);
@@ -59,7 +58,7 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
       border-radius: var(--ddd-radius-lg);
       max-width: 400px;
       width: 100%;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--ddd-boxShadow-md);
       display: flex;
       flex-direction: column;
       gap: var(--ddd-spacing-4);
@@ -76,7 +75,7 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
       padding: var(--ddd-spacing-3);
       border: 2px solid var(--ddd-theme-default-forestGreen);
       border-radius: var(--ddd-radius-md);
-      font-size: 16px;
+      font-size: var(--ddd-font-size-s);
     }
 
     button {
@@ -86,23 +85,15 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
       border-radius: var(--ddd-radius-md);
       padding: var(--ddd-spacing-3);
       font-weight: var(--ddd-font-weight-bold);
-      font-size: 16px;
+      font-size: var(--ddd-font-size-s);
       cursor: pointer;
     }
 
     button:hover {
-      opacity: 0.85;
+      background-color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
     }
 
-    .confirmation-box {
-      background-color: var(--ddd-theme-default-white);
-      padding: var(--ddd-spacing-6);
-      border-radius: var(--ddd-radius-lg);
-      max-width: 400px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
+
   `];
 }
 
@@ -125,9 +116,11 @@ export class SignUp extends DDDSuper(I18NMixin(LitElement)) {
      return html`
 
       <div class="placeHolder">
+        <div class="confirmation-box">
         <h1 class="top-heading">Thanks for signing up!</h1>
         <p>Confirmation sent for: ${this.name}</p>
         <p>Email: ${this.email}</p>
+        </div>
       </div>`;
     }
      return html`

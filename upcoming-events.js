@@ -38,8 +38,8 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
       }
       .event-title{
         margin: 0 0 var(--ddd-spacing-3) 0;
-        font-size: 40px;
-        font-weight: bold;
+        font-size: var(--ddd-font-size-l);
+        font-weight: var(--ddd-font-weight-bold);
         color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
       }
 
@@ -73,12 +73,12 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
         width: 85%;          
         height: 115px;        
         object-fit: cover;    
-        border-radius: 4px;
+        border-radius: var(--ddd-radius-sm);
       }
 
       .event-card:hover {
         transform: translateY(-6px);
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+        box-shadow: var(--ddd-boxShadow-lg);
         cursor: pointer;
       }
    
@@ -106,12 +106,12 @@ export class UpcomingEvents extends DDDSuper(I18NMixin(LitElement)) {
 
         <div class="event-card" @click=${() => this._navigate("my-schedule")}>
         <p class="event-title">Practices</p>
-        <img src="/images/practice.jpg" alt="Pratices" class="event-img">
+        <img src="/images/practice.jpg" alt="Practices" class="event-img">
         </div>
 
         <div class="event-card" @click=${() => this._navigate("my-schedule")}>
         <p class="event-title">Next Match</p>
-        <img src="/images/nextMatch.jpg" alt="Next Match" class="event-img">
+        <img src="/images/next-match.jpg" alt="Next Match" class="event-img">
         </div>
 
     </div>

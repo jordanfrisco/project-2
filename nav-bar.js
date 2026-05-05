@@ -43,10 +43,9 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
         border-radius: var(--ddd-radius-sm);
         text-decoration: none;
-
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: var(--ddd-spacing-2);
     }
     .logo {
         width: 100px;
@@ -54,7 +53,7 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
     }
     .nav-links a:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+      box-shadow: var(--ddd-boxShadow-lg);
       cursor: pointer;
     }
     .icon {

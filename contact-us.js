@@ -51,8 +51,8 @@ export class ContactUs extends DDDSuper(I18NMixin(LitElement)) {
       padding: var(--ddd-spacing-4);
       margin: var(--ddd-spacing-5) auto var(--ddd-spacing-4);
 
-      font-size: 24px;
-      font-weight: bold;
+      font-size: var(--ddd-font-size-m);
+      font-weight: var(--ddd-font-weight-bold);
       text-align: center; 
       }
    

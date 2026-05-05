@@ -19,7 +19,7 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.active = false;
-    this.topHeading = "Title:";
+    this.topHeading = "";
     this.currentDate = new Date(2026, 4, 1); // May 2026
   }
 
@@ -92,21 +92,13 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         :host {
           display: block;
           background-color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
-          padding: 24px;
+          padding: var(--ddd-spacing-5);
           box-sizing: border-box;
-          font-family: Arial, sans-serif;
         }
 
         .schedule-wrapper {
           max-width: 900px;
           margin: 0 auto;
-        }
-
-        .top-heading {
-          color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
-          font-size: 2rem;
-          font-weight: 700;
-          margin: 0 0 20px 0;
         }
 
         .schedule-header {
@@ -119,8 +111,8 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
         .month-title {
           text-align: center;
           color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
-          font-size: 1.8rem;
-          font-weight: 500;
+          font-size: var(--ddd-font-size-l);
+          font-weight: var(--ddd-font-weight-medium);
         }
 
         .left-btn {
@@ -135,40 +127,39 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
           background-color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
           color: light-dark( var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
           border: none;
-          padding: 6px 12px;
-          font-size: 1rem;
+          padding: var(--ddd-spacing-2) var(--ddd-spacing-3);
+          font-size: var(--ddd-font-size-s);
           cursor: pointer;
         }
 
         .schedule-grid {
           display: grid;
           grid-template-columns: repeat(7, 1fr);
-          gap: 4px;
+          gap: var(--ddd-spacing-1);
         }
 
         .day {
-          background-color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));;
+          background-color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));
           min-height: 120px;
-          padding: 10px;
-          box-sizing: border-box;
-          font-size: 1.2rem;
-          font-weight: 700;
+          padding: var(--ddd-spacing-3);
+          font-size: var(--ddd-font-size-s);
+          font-weight: var(--ddd-font-weight-bold);
           color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
         }
 
         .blank {
-          background-color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));;
+          background-color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));
           min-height: 120px;
         }
 
         .event {
           background-color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
-          color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));;
-          font-size: 0.75rem;
-          font-weight: 500;
-          margin-top: 6px;
-          padding: 4px;
-          border-radius: 4px;
+          color: light-dark( var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));
+          font-size: var(--ddd-font-size-3xs);
+          font-weight: var(--ddd-font-weight-medium);
+          margin-top: var(--ddd-spacing-2);
+          padding: var(--ddd-spacing-1);
+          border-radius: var(--ddd-radius-sm);
         }
       `,
     ];
@@ -177,7 +168,6 @@ export class MySchedule extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="schedule-wrapper">
-        <h1 class="top-heading">${this.topHeading}</h1>
 
         <div class="schedule-header">
           <button class="left-btn" @click="${this.prevMonth}">Prev</button>

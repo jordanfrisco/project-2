@@ -12,7 +12,6 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       active: { type: Boolean, reflect: true },
-      page: { type: String },
       coaches: { type: Array },
       kids: { type: Array }
     };
@@ -22,7 +21,6 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
     super();
 
     this.active = false;
-    this.page = "roster";
 
     this.topHeading = "Mini Master's Golf Club";
 
@@ -49,13 +47,13 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
-          background-color: var(--ddd-theme-default-alertUrgent);
-          padding: 16px;
+          background-color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
+          padding: var(--ddd-spacing-4) var(--ddd-spacing-4) var(--ddd-spacing-10);
           text-align: center;
         }
 
         .top-heading {
-          color: var(--ddd-theme-default-forestGreen);
+          color:light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
           font-weight: var(--ddd-font-weight-bold);
         }
 
@@ -63,9 +61,9 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 16px;
-          margin: 20px auto;
-          color: var(--ddd-theme-default-forestGreen);
+          gap: var(--ddd-spacing-4);
+          margin: var(--ddd-spacing-5) auto;
+          color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
         }
 
         .coach {
@@ -79,23 +77,25 @@ export class TeamRoster extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .kids {
-          margin-top: 10px;
-          color: var(--ddd-theme-default-forestGreen);
+          background-color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-white));
+          color: light-dark(var(--ddd-theme-default-white), var(--ddd-theme-default-forestGreen));
+          margin: var(--ddd-spacing-5) auto 0 auto;
+          padding: var(--ddd-spacing-4);
+          border-radius: var(--ddd-radius-md);
+          max-width: 500px;
+        }
+
+        .kids ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
         }
 
         .kids li {
-          margin: 4px 0;
+          margin: var(--ddd-spacing-1) 0;
         }
       `
     ];
-  }
-
-  goRoster() {
-    this.page = "roster";
-  }
-
-  goHome() {
-    this.page = "home";
   }
 
   render() {

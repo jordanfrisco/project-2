@@ -25,12 +25,12 @@ export class TeamStats extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
       display: block;
-      background-color: var(--ddd-theme-default-forestGreen);
-      padding: var(--ddd-spacing-2) var(--ddd-spacing-5) var(--ddd-spacing-7); 
+      background-color: light-dark(var(--ddd-theme-default-forestGreen), var(--ddd-theme-default-alertUrgent));
+      padding: var(--ddd-spacing-2) var(--ddd-spacing-5) var(--ddd-spacing-7);
     }
 
     .top-heading {
-      color: var(--ddd-theme-default-white);
+      color: light-dark(var(--ddd-theme-default-alertUrgent), var(--ddd-theme-default-forestGreen));
       font-weight: var(--ddd-font-weight-bold);
       text-align: center;
       margin-top: var(--ddd-spacing-5);
@@ -39,17 +39,23 @@ export class TeamStats extends DDDSuper(I18NMixin(LitElement)) {
 
     .team-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: var(--ddd-spacing-4);
+      grid-template-columns: repeat(2, 220px);
+      justify-content: center;
+      gap: var(--ddd-spacing-5);
     }
 
     .stat-card {
       background-color: var(--ddd-theme-default-white);
       color: var(--ddd-theme-default-forestGreen);
-      padding: var(--ddd-spacing-4);
+      padding: var(--ddd-spacing-6);
       border-radius: var(--ddd-radius-md);
       text-align: center;
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .stat-card h2 {
@@ -71,25 +77,25 @@ export class TeamStats extends DDDSuper(I18NMixin(LitElement)) {
 
      <h1 class="top-heading">${this.topHeading}</h1>
 
-    <div class="team-stats">
-      <div class="stat-card">
-          <h2>8–3</h2>
-            <p>Season Record</p>
-          </div>
+        <div class="team-stats">
+            <div class="stat-card">
+                <h2>8–3</h2>
+                  <p>Season Record</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>76.4</h2>
+              <p>Average Score</p>
+        </div>
 
       <div class="stat-card">
-          <h2>76.4</h2>
-            <p>Average Score</p>
-          </div>
-
-  <div class="stat-card">
-        <h2>292</h2>
-          <p>Lowest Team Round</p>
+          <h2>292</h2>
+            <p>Lowest Team Round</p>
       </div>
 
-  <div class="stat-card">
-        <h2>4</h2>
-          <p>Tournament Wins</p>
+      <div class="stat-card">
+          <h2>4</h2>
+            <p>Tournament Wins</p>
       </div>
   </div>`
 
